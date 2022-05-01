@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Modal from './Modal';
 import Title from './Title';
 import History from './History';
@@ -15,14 +15,6 @@ function App() {
     history: [],
     difficultyLevel: '',
   });
-
-  useEffect(() => {
-    fetchData().then(res => {
-      console.log(res);
-      setState({ ...state, data: res });
-    });
-    // eslint-disable-next-line
-  }, []);
 
   // opens modal
   const openModal = () => {
@@ -63,9 +55,9 @@ function App() {
 
     } else if (code === 2) {
       setState({
+        ...state,
         attempts: 10,
         data: [],
-        guess: '',
         history: [],
         difficultyLevel: '',
       });
@@ -85,7 +77,6 @@ function App() {
 
   const difficultyHander = (e) => {
     const { name } = e.target;
-    console.log(name);
     let max = 4;
 
     if (name === "medium") {
@@ -96,7 +87,7 @@ function App() {
 
     fetchData(max).then(res => {
       console.log(res);
-      setState({ ...state, data: res, difficultyLevel: name });
+      setState({ ...state, data: res, difficultyLevel: name, guess: '' });
     });
   }
 
@@ -105,7 +96,7 @@ function App() {
     <div className="app">
 
       {/* Modal */}
-      <Modal correctGuess={state.data.join('')} />
+      <Modal correctGuess={state.guess} />
 
       {/* welcome */}
       {state.difficultyLevel.length === 0 && <div className="welcome">
