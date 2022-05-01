@@ -120,6 +120,7 @@ function App() {
 
         {/* shapes representing total numbers in combo */}
         <Shapes shapes={state.shapes} />
+        <p>{state.data.length} Number Combination</p>
 
         {/* user's guess */}
         <h2 className="title__question">Please guess the number combination:</h2>
