@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Modal from './Modal';
 import Title from './Title';
 import History from './History';
 import { fetchData } from '../utils/fetchData';
@@ -22,6 +23,12 @@ function App() {
     });
     // eslint-disable-next-line
   }, []);
+
+  // opens modal
+  const openModal = () => {
+    const modal = document.querySelector(".modal__dialog");
+    modal.setAttribute("open", "");
+  }
 
   // gets user's input
   const handleInputChange = (e) => {
@@ -55,7 +62,6 @@ function App() {
       setState({ ...state, guess: '' });
 
     } else if (code === 2) {
-      alert(message);
       setState({
         attempts: 10,
         data: [],
@@ -63,6 +69,8 @@ function App() {
         history: [],
         difficultyLevel: '',
       });
+
+      openModal();
 
     } else if (code === 3 || code === 4 || code === 5) {
       alert(message);
@@ -83,6 +91,9 @@ function App() {
   // JS that's returned
   return (
     <div className="app">
+
+      {/* Modal */}
+      <Modal correctGuess={state.data.join('')} />
 
       {/* welcome */}
       {state.difficultyLevel.length === 0 && <div className="welcome">

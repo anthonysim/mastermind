@@ -1,0 +1,18 @@
+.modal {
+  position: absolute;
+  margin-top: 20px;
+  width: 500px;
+  z-index: 1;
+
+  &__dialog {
+    text-align: center;
+  }
+
+  &__close {
+    background: #1E90FF;
+    color: #FFF;
+    border-radius: 5px;
+    border-color: #1E90FF;
+    cursor: pointer;
+  }
+}
