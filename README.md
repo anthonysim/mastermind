@@ -7,7 +7,7 @@
 3. [Tech](#Tech)
 4. [Notes](#Notes)
 
-## Usage Instructions:
+## Usage:
 
 - **git clone** this repo
 - **npm install**
@@ -33,6 +33,6 @@ as feedback:
 - CSS / Sass
 
 ## Notes
-> The number combination is hidden, but for the sake of showcasing the
-> game, I console logged the hidden number combination. To see the hidden
-> number combination, please open your console.
+The number combination is hidden, but for the sake of showcasing the
+game, I console logged the hidden number combination. To see the hidden
+number combination, please open your console.
