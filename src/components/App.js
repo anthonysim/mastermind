@@ -85,7 +85,19 @@ function App() {
 
   const difficultyHander = (e) => {
     const { name } = e.target;
-    setState({ ...state, difficultyLevel: name });
+    console.log(name);
+    let max = 4;
+
+    if (name === "medium") {
+      max = 7;
+    } else if (name === "hard") {
+      max = 10;
+    }
+
+    fetchData(max).then(res => {
+      console.log(res);
+      setState({ ...state, data: res, difficultyLevel: name });
+    });
   }
 
   // JS that's returned
@@ -104,7 +116,7 @@ function App() {
         <div className="welcome__buttons">
           <button onClick={difficultyHander} name="easy" className="welcome__button">EASY</button>
           <button onClick={difficultyHander} name="medium" className="welcome__button">MEDIUM</button>
-          <button onClick={difficultyHander} name="difficult" className="welcome__button">HARD</button>
+          <button onClick={difficultyHander} name="hard" className="welcome__button">HARD</button>
         </div>
       </div>}
 
