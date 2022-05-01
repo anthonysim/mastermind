@@ -10,8 +10,9 @@ function App() {
   const [state, setState] = useState({
     attempts: 1,
     data: [],
-    guess: "",
+    guess: '',
     history: [],
+    difficultyLevel: '',
   });
 
   useEffect(() => {
@@ -19,7 +20,6 @@ function App() {
       console.log(res);
       setState({ ...state, data: res });
     });
-
     // eslint-disable-next-line
   }, []);
 
@@ -44,43 +44,64 @@ function App() {
       setState({
         attempts: 0,
         data: [],
-        guess: "",
-        history: []
+        guess: '',
+        history: [],
+        difficultyLevel: '',
       });
     }
 
     else if (code === 0 || code === 1) {
       alert(message);
-      setState({ ...state, guess: "" });
+      setState({ ...state, guess: '' });
 
     } else if (code === 2) {
       alert(message);
       setState({
         attempts: 0,
         data: [],
-        guess: "",
-        history: []
+        guess: '',
+        history: [],
+        difficultyLevel: '',
       });
 
     } else if (code === 3 || code === 4 || code === 5) {
+      alert(message);
       setState({
         ...state,
         attempts: state.attempts += 1,
-        guess: "",
+        guess: '',
         history: state.history.concat(`${state.attempts - 1}: ${state.guess} ${message}`),
       });
     }
   }
 
+  const difficultyHander = (e) => {
+    const { name } = e.target;
+    console.log(name);
+  }
+
+  // JS that's returned
   return (
     <div className="app">
+
+      {/* welcome */}
+      <div className="welcome">
+        <h1>Welcome to the Mastermind Game!</h1>
+        <br />
+        <h2 className="welcome__difficulty">Please choose a difficulty level:</h2>
+
+        <div className="welcome__buttons">
+          <button onClick={difficultyHander} name="easy" className="welcome__button">EASY</button>
+          <button onClick={difficultyHander} name="medium" className="welcome__button">MEDIUM</button>
+          <button onClick={difficultyHander} name="difficult" className="welcome__button">HARD</button>
+        </div>
+      </div>
 
       {/* title */}
       <Title attempts={state.attempts} />
 
       {/* current guess */}
-      <h2 className="app__dashes">_ _ _ _</h2>
-      {/* <h2 className="app__numbers">{state.data}</h2> */}
+      <h2 className="app__dashes">{state.data.map((_) => ' __ ')}</h2>
 
       {/* user's guess */}
       <h2 className="app__question">Please guess the number combination:</h2>
