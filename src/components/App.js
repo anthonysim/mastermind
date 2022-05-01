@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Title from './Title';
 import History from './History';
+import { guessCheck } from '../utils/guessCheck';
+import { messages } from '../utils/messages';
 import '../stylings/App.scss';
 
 function App() {
@@ -12,7 +14,7 @@ function App() {
     history: [
       'The player had guess a correct number',
       'The player had guessed a correct number and its correct location',
-      'The player’s guess was incorrect'
+      'The player\'s guess was incorrect'
     ],
   });
 
@@ -25,10 +27,8 @@ function App() {
 
       setState({ ...state, data: nums });
     }
-
     fetchData()
       .catch(console.error);
-
     // eslint-disable-next-line
   }, []);
 
@@ -44,9 +44,15 @@ function App() {
   // user's submissions
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log('clicked');
+
+    setState({ ...state, attempts: state.attempts += 1, guess: "" });
+
+    const result = messages(guessCheck(state.guess, state.data.join('')));
+    console.log(result);
+
+
   }
-  console.log(state.data);
+
   return (
     <div className="app">
 
