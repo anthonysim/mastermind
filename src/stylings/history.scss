@@ -5,4 +5,8 @@
     display: flex;
     justify-content: center;
   }
+
+  &__guesses {
+    list-style-type: none;
+  }
 }

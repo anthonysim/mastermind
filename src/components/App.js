@@ -8,7 +8,7 @@ import '../stylings/App.scss';
 
 function App() {
   const [state, setState] = useState({
-    attempts: 0,
+    attempts: 1,
     data: [],
     guess: "",
     history: [],
@@ -35,7 +35,17 @@ function App() {
     const code = guessCheck(state.guess, state.data.join(''));
     const message = messages(code);
 
-    if (code === 0 || code === 1) {
+    if (state.attempts === 10) {
+      alert('No more attempts, game over!');
+      setState({
+        attempts: 0,
+        data: [],
+        guess: "",
+        history: []
+      });
+    }
+
+    else if (code === 0 || code === 1) {
       alert(message);
       setState({ ...state, guess: "" });
 
@@ -49,16 +59,15 @@ function App() {
       });
 
     } else if (code === 3 || code === 4 || code === 5) {
-      alert(message);
       setState({
         ...state,
         attempts: state.attempts += 1,
         guess: "",
-        history: state.history.concat(`Attempt ${state.attempts}: ${message}`).reverse(),
+        history: state.history.concat(`${state.attempts - 1}: ${state.guess} ${message}`),
       });
     }
   }
-  console.log(state);
+
   return (
     <div className="app">
 
