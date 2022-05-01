@@ -9,17 +9,20 @@
     color: #1E90FF;
   }
 
-  &__dashes,
-  &__question {
-    color: #585054;
-  }
+  .title {
 
-  &__submit {
-    background: #1E90FF;
-    color: #FFF;
-    border-radius: 4px;
-    border: 2px solid transparent;
-    cursor: pointer;
+    &__dashes,
+    &__question {
+      color: #585054;
+    }
+
+    &__submit {
+      background: #1E90FF;
+      color: #FFF;
+      border-radius: 4px;
+      border: 2px solid transparent;
+      cursor: pointer;
+    }
   }
 
   .welcome {

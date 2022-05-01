@@ -77,7 +77,7 @@ function App() {
 
   const difficultyHander = (e) => {
     const { name } = e.target;
-    console.log(name);
+    setState({ ...state, difficultyLevel: name });
   }
 
   // JS that's returned
@@ -85,7 +85,7 @@ function App() {
     <div className="app">
 
       {/* welcome */}
-      <div className="welcome">
+      {state.difficultyLevel.length === 0 && <div className="welcome">
         <h1>Welcome to the Mastermind Game!</h1>
         <br />
         <h2 className="welcome__difficulty">Please choose a difficulty level:</h2>
@@ -95,35 +95,37 @@ function App() {
           <button onClick={difficultyHander} name="medium" className="welcome__button">MEDIUM</button>
           <button onClick={difficultyHander} name="difficult" className="welcome__button">HARD</button>
         </div>
-      </div>
+      </div>}
 
       {/* title */}
-      <Title attempts={state.attempts} />
+      {state.difficultyLevel.length !== 0 && <div className="title">
+        <Title attempts={state.attempts} />
 
-      {/* current guess */}
-      <h2 className="app__dashes">{state.data.map((_) => ' __ ')}</h2>
+        {/* current guess */}
+        <h2 className="title__dashes">{state.data.map((_) => ' __ ')}</h2>
 
-      {/* user's guess */}
-      <h2 className="app__question">Please guess the number combination:</h2>
-      <form>
-        <input
-          value={state.guess || ""}
-          onChange={handleInputChange}
-          name="guess"
-          label="Guess"
-        />
-        <button
-          onClick={submitHandler}
-          className="app__submit"
-          type="submit">
-          Submit
-        </button>
-      </form>
-      <br />
-      <br />
+        {/* user's guess */}
+        <h2 className="title__question">Please guess the number combination:</h2>
+        <form>
+          <input
+            value={state.guess || ""}
+            onChange={handleInputChange}
+            name="guess"
+            label="Guess"
+          />
+          <button
+            onClick={submitHandler}
+            className="title__submit"
+            type="submit">
+            Submit
+          </button>
+        </form>
+        <br />
+        <br />
 
-      {/* guess history */}
-      <History guessHistory={state.history} />
+        {/* guess history */}
+        <History guessHistory={state.history} />
+      </div>}
     </div>
   );
 }
