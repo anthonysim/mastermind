@@ -7,7 +7,7 @@ import '../stylings/App.scss';
 function App() {
   const [state, setState] = useState({
     attempts: 0,
-    data: null,
+    data: [],
     guess: "",
     history: [
       'The player had guess a correct number',
@@ -18,9 +18,17 @@ function App() {
 
   useEffect(() => {
     const url = 'http://www.random.org/integers/?num=4&min=0&max=7&col=1&base=10&format=plain&rnd=new';
-    axios.get(url)
-      .then(res => setState({ ...state, data: res.data }))
-      .catch(err => console.console.error(err));
+
+    const fetchData = async () => {
+      const fetchedNums = await axios.get(url);
+      const nums = fetchedNums.data.match(/[0-9]/gi);
+
+      setState({ ...state, data: nums });
+    }
+
+    fetchData()
+      .catch(console.error);
+
     // eslint-disable-next-line
   }, []);
 
@@ -38,7 +46,7 @@ function App() {
     e.preventDefault();
     console.log('clicked');
   }
-  console.log(state);
+  console.log(state.data);
   return (
     <div className="app">
 
@@ -46,7 +54,7 @@ function App() {
       <Title attempts={state.attempts} />
 
       {/* current guess */}
-      {state.data === null
+      {state.data.length === 0
         ? <h2 className="app__dashes">_ _ _ _</h2>
         : <h2 className="app__numbers">{state.data}</h2>}
 
