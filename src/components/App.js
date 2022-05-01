@@ -2,9 +2,11 @@ import { useState } from 'react';
 import Modal from './Modal';
 import Title from './Title';
 import History from './History';
+import Shapes from './Shapes';
 import { fetchData } from '../utils/fetchData';
 import { guessCheck } from '../utils/guessCheck';
 import { messages } from '../utils/messages';
+import { shapesGenerator } from '../utils/shapesGenerator';
 import '../stylings/App.scss';
 
 function App() {
@@ -14,6 +16,7 @@ function App() {
     guess: '',
     history: [],
     difficultyLevel: '',
+    shapes: [],
   });
 
   // opens modal
@@ -87,7 +90,7 @@ function App() {
 
     fetchData(max).then(res => {
       console.log(res);
-      setState({ ...state, data: res, difficultyLevel: name, guess: '' });
+      setState({ ...state, data: res, difficultyLevel: name, guess: '', shapes: shapesGenerator(max) });
     });
   }
 
@@ -115,8 +118,8 @@ function App() {
       {state.difficultyLevel.length !== 0 && <div className="title">
         <Title attempts={state.attempts} />
 
-        {/* current guess */}
-        <h2 className="title__dashes">{state.data.map((_) => ' __ ')}</h2>
+        {/* shapes representing total numbers in combo */}
+        <Shapes shapes={state.shapes} />
 
         {/* user's guess */}
         <h2 className="title__question">Please guess the number combination:</h2>

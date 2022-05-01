@@ -1,0 +1,26 @@
+.shapes {
+  display: flex;
+  gap: 10px;
+
+
+  &__circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgb(84, 108, 172);
+  }
+
+  &__square {
+    width: 40px;
+    height: 40px;
+    background: rgb(197, 54, 54);
+  }
+
+  &__triangle {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 40px solid rgb(0, 255, 149);
+  }
+}
