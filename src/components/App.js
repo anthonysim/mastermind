@@ -15,7 +15,11 @@ function App() {
   });
 
   useEffect(() => {
-    fetchData().then(res => setState({ ...state, data: res }));
+    fetchData().then(res => {
+      console.log(res);
+      setState({ ...state, data: res });
+    });
+
     // eslint-disable-next-line
   }, []);
 
@@ -75,9 +79,8 @@ function App() {
       <Title attempts={state.attempts} />
 
       {/* current guess */}
-      {state.data.length === 0
-        ? <h2 className="app__dashes">_ _ _ _</h2>
-        : <h2 className="app__numbers">{state.data}</h2>}
+      <h2 className="app__dashes">_ _ _ _</h2>
+      {/* <h2 className="app__numbers">{state.data}</h2> */}
 
       {/* user's guess */}
       <h2 className="app__question">Please guess the number combination:</h2>
