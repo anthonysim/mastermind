@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import Title from './Title';
 import History from './History';
+import { fetchData } from '../utils/fetchData';
 import { guessCheck } from '../utils/guessCheck';
 import { messages } from '../utils/messages';
 import '../stylings/App.scss';
@@ -11,24 +11,11 @@ function App() {
     attempts: 0,
     data: [],
     guess: "",
-    history: [
-      'The player had guess a correct number',
-      'The player had guessed a correct number and its correct location',
-      'The player\'s guess was incorrect'
-    ],
+    history: [],
   });
 
   useEffect(() => {
-    const url = 'http://www.random.org/integers/?num=4&min=0&max=7&col=1&base=10&format=plain&rnd=new';
-
-    const fetchData = async () => {
-      const fetchedNums = await axios.get(url);
-      const nums = fetchedNums.data.match(/[0-9]/gi);
-
-      setState({ ...state, data: nums });
-    }
-    fetchData()
-      .catch(console.error);
+    fetchData().then(res => setState({ ...state, data: res }));
     // eslint-disable-next-line
   }, []);
 
@@ -45,14 +32,33 @@ function App() {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    setState({ ...state, attempts: state.attempts += 1, guess: "" });
+    const code = guessCheck(state.guess, state.data.join(''));
+    const message = messages(code);
 
-    const result = messages(guessCheck(state.guess, state.data.join('')));
-    console.log(result);
+    if (code === 0 || code === 1) {
+      alert(message);
+      setState({ ...state, guess: "" });
 
+    } else if (code === 2) {
+      alert(message);
+      setState({
+        attempts: 0,
+        data: [],
+        guess: "",
+        history: []
+      });
 
+    } else if (code === 3 || code === 4 || code === 5) {
+      alert(message);
+      setState({
+        ...state,
+        attempts: state.attempts += 1,
+        guess: "",
+        history: state.history.concat(`Attempt ${state.attempts}: ${message}`).reverse(),
+      });
+    }
   }
-
+  console.log(state);
   return (
     <div className="app">
 
