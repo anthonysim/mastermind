@@ -15,4 +15,5 @@ export const guessCheck = (guess, data) => {
       return 4;
     }
   }
+  return 5;
 }
