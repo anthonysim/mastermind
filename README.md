@@ -9,9 +9,9 @@
 
 ## Usage Instructions:
 
-- git clone https://github.com/anthonysim/mastermind.git
-- git install
-- npm start
+- **git clone** this repo
+- **npm install**
+- **npm start**
 
 ## Game Rules
 
