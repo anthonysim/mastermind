@@ -8,6 +8,7 @@ import { guessCheck } from '../utils/guessCheck';
 import { messages } from '../utils/messages';
 import { shapesGenerator } from '../utils/shapesGenerator';
 import { checkSecond } from '../utils/checkSecond';
+import { stopTimer } from '../utils/stopTimer';
 import '../stylings/App.scss';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
     difficultyLevel: '',
     shapes: [],
     time: '01:12',
+    isCountdownOver: false,
   });
 
   // opens modal
@@ -53,6 +55,7 @@ function App() {
         guess: '',
         history: [],
         difficultyLevel: '',
+        isCountdownOver: false,
       });
     }
 
@@ -67,9 +70,13 @@ function App() {
         data: [],
         history: [],
         difficultyLevel: '',
-        time: '01:12',
+        time: '1:12',
+        isCountdownOver: false,
       });
 
+      let timer = document.querySelector('.timer');
+      timer.classList.remove('background');
+      stopTimer();
       openModal();
 
     } else if (code === 3 || code === 4 || code === 5) {
@@ -97,9 +104,11 @@ function App() {
     fetchData(max).then(res => {
       // for the sake of a demo, the answer is logged in the console.
       console.log(res);
-      setState({ ...state, data: res, difficultyLevel: name, guess: '', shapes: shapesGenerator(max) });
+      setState({ ...state, data: res, difficultyLevel: name, guess: '', shapes: shapesGenerator(max), isCountdownOver: false });
     });
 
+    let timer = document.querySelector('.timer');
+    timer.classList.add('background');
     startTimer();
   }
 
@@ -108,18 +117,32 @@ function App() {
     let presentTime = inputEl.current.innerHTML;
     let timeArray = presentTime.split(/[:]+/);
     let m = timeArray[0];
-    let s = checkSecond((timeArray[1] - 1));
+    let s = checkSecond(timeArray[1] - 1);
 
     if (s === 59) {
-      m = m - 1
+      m = m - 1;
     }
 
+    // game over if time runs out
     if (m < 0) {
+      setState({
+        ...state,
+        attempts: 10,
+        data: [],
+        history: [],
+        difficultyLevel: '',
+        time: '1:12',
+        isCountdownOver: true,
+      });
+
+      let timer = document.querySelector('.timer');
+      timer.classList.remove('background');
+      stopTimer();
+      openModal();
       return;
     }
 
     inputEl.current.innerHTML = m + ":" + s;
-    console.log(m)
     setTimeout(startTimer, 1000);
   }
 
@@ -131,7 +154,7 @@ function App() {
       <div ref={inputEl} className="timer">{state.time}</div>
 
       {/* Modal */}
-      <Modal correctGuess={state.guess} />
+      <Modal correctGuess={state.guess} isCountdownOver={state.isCountdownOver} />
 
       {/* welcome */}
       {state.difficultyLevel.length === 0 && <div className="welcome">
