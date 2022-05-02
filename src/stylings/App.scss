@@ -13,7 +13,7 @@
 
     &__dashes,
     &__question {
-      color: #585054;
+      color: #000000;
     }
 
     &__submit {
@@ -40,6 +40,18 @@
       padding: 10px;
       border-radius: 5px;
       cursor: pointer;
+    }
+  }
+
+  .timer {
+    background-color: #419D78;
+    color: #FFF;
+    font-size: 3.5rem;
+    min-width: 175px;
+    text-align: center;
+
+    &.background {
+      background-color: #419D78;
     }
   }
 }
