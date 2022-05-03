@@ -3,17 +3,22 @@
 ## Table of Contents
 
 1. [Directions](#Directions)
-2. [Rules](#Rules)
-3. [Thoughts](#Thoughts)
-4. [Tech](#Tech)
-5. [Notes](#Notes)
+2. [Demo](#Demo)
+3. [Overview](#Overview)
+4. [Rules](#Rules)
+5. [Tech](#Tech)
+6. [Notes](#Notes)
 
-## Usage:
+## Directions
 
 1) To get started, please clone this repo to your local machine by typing ** git clone** command following by the https url that can be found pressing the green button that states "Code."
 2) Install all packages by running **npm install** in your terminal.
 3) Start the program by running **npm start** in your terminal.
 4) (Hopefully), everything should be running! 😀
+
+## Demo
+
+## Overview
 
 ## Rules
 
@@ -28,9 +33,6 @@ as feedback:
 - The player had guess a correct number
 - The player had guessed a correct number and its correct location
 - The player’s guess was incorrect
-
-## Thoughts
-
 
 ## Tech
 
