@@ -44,15 +44,15 @@
   }
 
   .timer {
-    background-color: #FFF;
+    background-color: #1E90FF;
     color: #FFF;
     font-size: 3.5rem;
     min-width: 175px;
     text-align: center;
+    border-radius: 15px;
 
     &.background {
       background-color: #1E90FF;
-      border-radius: 15px;
     }
   }
 }

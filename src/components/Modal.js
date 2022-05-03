@@ -4,6 +4,7 @@ const Modal = ({ correctGuess, isCountdownOver }) => {
   const closeModalHandler = () => {
     const modal = document.querySelector(".modal__dialog");
     modal.removeAttribute("open");
+    window.location.reload(false);
   }
 
   return (

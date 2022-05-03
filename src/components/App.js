@@ -21,7 +21,6 @@ function App() {
     history: [],
     difficultyLevel: '',
     shapes: [],
-    time: '10:00',
     isCountdownOver: false,
   });
 
@@ -64,19 +63,19 @@ function App() {
       setState({ ...state, guess: '' });
 
     } else if (code === 2) {
-      setState({
-        ...state,
-        attempts: 10,
-        data: [],
-        history: [],
-        difficultyLevel: '',
-        time: '10:00',
-        isCountdownOver: false,
-      });
-
       stopTimer();
       openModal();
       inputEl.current.classList.remove('background');
+
+      setState({
+        attempts: 10,
+        data: [],
+        guess: '',
+        history: [],
+        difficultyLevel: '',
+        shapes: [],
+        isCountdownOver: false,
+      });
 
     } else if (code === 3 || code === 4 || code === 5) {
       setState({
@@ -113,7 +112,6 @@ function App() {
     inputEl.current.classList.add('background');
     let presentTime = inputEl.current.innerHTML;
 
-
     let timeArray = presentTime.split(/[:]+/);
     let m = timeArray[0];
     let s = checkSecond(timeArray[1] - 1);
@@ -130,7 +128,6 @@ function App() {
         data: [],
         history: [],
         difficultyLevel: '',
-        time: '1:12',
         isCountdownOver: true,
       });
 
@@ -150,7 +147,7 @@ function App() {
     <div className="app">
 
       {/* time */}
-      <div ref={inputEl} className="timer">{state.time}</div>
+      <div ref={inputEl} className="timer">10:00</div>
 
       {/* Modal */}
       <Modal correctGuess={state.guess} isCountdownOver={state.isCountdownOver} />
