@@ -74,13 +74,11 @@ function App() {
         isCountdownOver: false,
       });
 
-      let timer = document.querySelector('.timer');
-      timer.classList.remove('background');
       stopTimer();
       openModal();
+      inputEl.current.classList.remove('background');
 
     } else if (code === 3 || code === 4 || code === 5) {
-      alert(message);
       setState({
         ...state,
         attempts: state.attempts -= 1,
@@ -107,14 +105,15 @@ function App() {
       setState({ ...state, data: res, difficultyLevel: name, guess: '', shapes: shapesGenerator(max), isCountdownOver: false });
     });
 
-    let timer = document.querySelector('.timer');
-    timer.classList.add('background');
     startTimer();
   }
 
   // countdown timer
   const startTimer = () => {
+    inputEl.current.classList.add('background');
     let presentTime = inputEl.current.innerHTML;
+
+
     let timeArray = presentTime.split(/[:]+/);
     let m = timeArray[0];
     let s = checkSecond(timeArray[1] - 1);
