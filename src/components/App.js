@@ -21,7 +21,7 @@ function App() {
     history: [],
     difficultyLevel: '',
     shapes: [],
-    time: '01:12',
+    time: '10:00',
     isCountdownOver: false,
   });
 
@@ -70,7 +70,7 @@ function App() {
         data: [],
         history: [],
         difficultyLevel: '',
-        time: '1:12',
+        time: '10:00',
         isCountdownOver: false,
       });
 
