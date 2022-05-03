@@ -142,7 +142,6 @@ function App() {
     setTimeout(startTimer, 1000);
   }
 
-  // JS that's returned
   return (
     <div className="app">
 

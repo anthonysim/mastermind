@@ -20,7 +20,7 @@ const Modal = ({ correctGuess, isCountdownOver }) => {
         : <dialog
           className="modal__dialog">
           <h1>Game Over!</h1>
-          <p className="modal__message" >Time Ran Out!</p>
+          <p className="modal__message" >You lost!</p>
           <button className="modal__close" onClick={closeModalHandler}>New Game</button>
         </dialog>}
     </div>
