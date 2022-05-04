@@ -6,14 +6,13 @@ const Modal = ({ correctGuess, isCountdownOver }) => {
     modal.removeAttribute("open");
     window.location.reload(false);
   }
-
+  console.log(correctGuess);
   return (
     <div className="modal">
       {!isCountdownOver
         ? <dialog
           className="modal__dialog">
           <h1>Congratulations, you won!</h1>
-          <p className="modal__message" >The correct number combination is: {correctGuess}</p>
           <button className="modal__close" onClick={closeModalHandler}>New Game</button>
         </dialog>
 

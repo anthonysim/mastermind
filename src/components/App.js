@@ -48,14 +48,7 @@ function App() {
 
     if (state.attempts === 1) {
       alert('No more attempts, game over!');
-      setState({
-        attempts: 10,
-        data: [],
-        guess: '',
-        history: [],
-        difficultyLevel: '',
-        isCountdownOver: false,
-      });
+      window.location.reload(false);
     }
 
     else if (code === 0 || code === 1) {
