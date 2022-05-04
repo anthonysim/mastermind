@@ -18,7 +18,16 @@
 
 ## Demo
 
+<span>Click</span>
+<a target="_blank" href="https://drive.google.com/file/d/1NLoRm0B9ueeeHNVasq6o5gWarWf4S_Uj/view?usp=sharing">here
+</a>
+<span>to see video of demo!</span>
+
 ## Overview
+<span>Click</span>
+<a target="_blank" href="">here
+</a>
+<span>to see overview of the code, thought process, and implementation!</span>
 
 ## Rules
 

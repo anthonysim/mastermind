@@ -6,7 +6,7 @@ const Modal = ({ correctGuess, isCountdownOver }) => {
     modal.removeAttribute("open");
     window.location.reload(false);
   }
-  console.log(correctGuess);
+
   return (
     <div className="modal">
       {!isCountdownOver
