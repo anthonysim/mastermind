@@ -48,7 +48,7 @@ following by the https url that can be found pressing the green button that stat
 
 ## Overview
 
-Hello and thank you for taking the time to read what I wrote. This will be a high level overview of the code structure and general implementation. If you haven't already, please check out the demo video above in this read me! 😀
+Hello and thank you for taking the time to read what I wrote. This will be a high level overview of the code structure and general implementation. If you haven't already, please check out the demo video above in this read me!
 
 The mastermind game was created using Javascript / React - all the files are inside the ```src``` folder.
 
@@ -76,7 +76,7 @@ The input bar inside ```lines 168 to 183``` is where the user types in their gue
 - 'Guess matches data!'
 - 'The player had guessed a correct number and its correct location!'
 - 'The player had guess a correct number!'
-- 'The player\'s guess was incorrect!'
+- 'The player's guess was incorrect!'
 - 'Something went wrong!'
 
 A quick run through, let's say a user typed in a guess '1234', the ```submitHandler``` will invoke call the ```guessCheck``` function in the ```utils``` folder which returns a number, this number is used when the ```messages``` function, also in the ```utils``` folder to return one of the messages listed above. Depending on the user's guess, state is updated accordingly.
@@ -87,7 +87,22 @@ A quick run through, let's say a user typed in a guess '1234', the ```submitHand
 
 ## Thoughts
 
+My initial thought was "what is mastermind?" In all honesty this must've been a game that I was never introduced in my youth. Nevertheless, I read the directions that were given to me and did my best to implement the game.
 
+When structuring the game I went from beginning to end. I wanted a welcome page to greet the user and give them the option to select a difficulty level. From there it was all about waiting for the user to make a guess. I wrote down all the scenarios that could play out with a user.
+
+- If a user types in a non-number?
+- If a user types in a short or long guess?
+- If the player guess matches?
+- If the player had guessed a correct number and its correct location?
+- If the player had guess a correct number?
+- If the player's guess was incorrect?
+
+And with each potential scenario I went by a step by step approach with what should happen first, second, third, and so on until the end along with conditions that may play out as well.
+
+After I implemented everything I decided to add in a timer. Once the timer was running I made sure that it was integrated with the game (when the timer runs out the game ends).
+
+To summarize, my general approach was to read what was given to me, based on the user's input detail all the scenarios that could play out, then code out step by step what the output should be based on the scenarios.
 
 ## Tech
 
