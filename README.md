@@ -1,13 +1,5 @@
 # Mastermind Game
 
-## Demo
-
-<span>Click</span>
-<a target="_blank" href="https://drive.google.com/file/d/1NLoRm0B9ueeeHNVasq6o5gWarWf4S_Uj/view?usp=sharing">here
-</a>
-<span>to see demo.</span>
-<br/>
-
 ## Table of Contents
 
 1. [Rules](#Rules)
@@ -49,7 +41,11 @@ following by the https url that can be found pressing the green button that stat
 
 ## Overview
 
-Hello and thank you for taking the time to read what I wrote. This will be a high level overview of the code structure and general implementation. If you haven't already, please check out the demo video above in this read me!
+Hello and thank you for taking the time to read what I wrote. This will be a high level overview of the code structure and general implementation. If time is of the essence, please click <a target="_blank" href="https://drive.google.com/file/d/1NLoRm0B9ueeeHNVasq6o5gWarWf4S_Uj/view?usp=sharing">here
+</a>
+<span>to view a quick demo.</span>
+
+If time permits, please view the demo prior to this overview.
 
 The mastermind game was created using Javascript / React - all the files are inside the ```src``` folder.
 
