@@ -81,7 +81,7 @@ function App() {
   }
 
   // user selects difficulty level
-  const difficultyHander = (e) => {
+  const difficultyHandler = (e) => {
     const { name } = e.target;
     let max = 4;
 
@@ -151,9 +151,9 @@ function App() {
         <h2 className="welcome__difficulty">Please choose a difficulty level:</h2>
 
         <div className="welcome__buttons">
-          <button onClick={difficultyHander} name="easy" className="welcome__button">EASY</button>
-          <button onClick={difficultyHander} name="medium" className="welcome__button">MEDIUM</button>
-          <button onClick={difficultyHander} name="hard" className="welcome__button">HARD</button>
+          <button onClick={difficultyHandler} name="easy" className="welcome__button">EASY</button>
+          <button onClick={difficultyHandler} name="medium" className="welcome__button">MEDIUM</button>
+          <button onClick={difficultyHandler} name="hard" className="welcome__button">HARD</button>
         </div>
       </div>}
 
