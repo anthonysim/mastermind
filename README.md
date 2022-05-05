@@ -11,18 +11,17 @@
 
 ## Directions
 
-1) If node is not installed, please download and install node
+1) If node is not installed, please download and install node <span><a target="_blank" href="https://nodejs.org/en/download/">here</a></span>
 
-<span>
-  <a target="_blank" href="https://nodejs.org/en/download/">here
-  </a>
-</span>
+2) In your terminal, please clone this repo to your local machine by typing the **git clone** command
+following by the https url that can be found pressing the green button that states "Code."
 
-https://nodejs.org/en/download/
-1) To get started, please clone this repo to your local machine by typing ** git clone** command following by the https url that can be found pressing the green button that states "Code."
-2) Install all packages by running **npm install** in your terminal.
-3) Start the program by running **npm start** in your terminal.
-4) (Hopefully), everything should be running! 😀
+![Screen Shot 2022-05-04 at 5 16 54 PM](https://user-images.githubusercontent.com/31682285/166847133-6e476c89-c8a7-4476-9267-d266815b66d2.png)
+
+3) Install all packages by running **npm install**.
+4) Start the program by running **npm start**.
+5) The game should appear on http://localhost:3000/
+6) 😀
 
 ## Demo
 
