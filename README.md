@@ -11,6 +11,14 @@
 
 ## Directions
 
+1) If node is not installed, please download and install node
+
+<span>
+  <a target="_blank" href="https://nodejs.org/en/download/">here
+  </a>
+</span>
+
+https://nodejs.org/en/download/
 1) To get started, please clone this repo to your local machine by typing ** git clone** command following by the https url that can be found pressing the green button that states "Code."
 2) Install all packages by running **npm install** in your terminal.
 3) Start the program by running **npm start** in your terminal.
