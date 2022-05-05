@@ -15,6 +15,7 @@
 3. [Overview](#Overview)
 4. [Thoughts](#Thoughts)
 5. [Tech](#Tech)
+6. [Screenshots](#Screenshots)
 
 ## Rules
 
@@ -108,3 +109,9 @@ To summarize, my general approach was to read what was given to me, based on the
 
 - React (Create-React-App) / Javascript
 - CSS / SASS
+
+## Screenshots
+
+![Screen Shot 2022-05-04 at 9 06 17 PM](https://user-images.githubusercontent.com/31682285/166862414-c2c59e4e-f8fc-4be5-a173-ff68c3a2cb10.png)
+
+![Screen Shot 2022-05-04 at 9 06 53 PM](https://user-images.githubusercontent.com/31682285/166862416-062edef6-c5b0-4edf-b381-ae6c4b20ce67.png)
