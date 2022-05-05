@@ -7,7 +7,6 @@
 3. [Demo](#Demo)
 4. [Overview](#Overview)
 5. [Tech](#Tech)
-6. [Notes](#Notes)
 
 ## Rules
 
@@ -23,9 +22,9 @@ as feedback:
 - The player had guessed a correct number and its correct location
 - The player’s guess was incorrect
 
-## Directions
+## Installation
 
-1) If node is not installed, please download and install node <span><a target="_blank" href="https://nodejs.org/en/download/">here</a></span>
+1) If node is not installed, please download and install node https://nodejs.org/en/download/
 
 2) In your terminal, please clone this repo to your local machine by typing the **git clone** command
 following by the https url that can be found pressing the green button that states "Code."
@@ -36,7 +35,7 @@ following by the https url that can be found pressing the green button that stat
 
 3) In your terminal, install all packages by running ```npm install```.
 4) In your terminal, start the program by running ```npm start```.
-5) The game should appear on http://localhost:3000/ in your browser
+5) The game should appear on http://localhost:3000/ in your browser!
 6) 😀!
 
 ## Demo
@@ -44,20 +43,15 @@ following by the https url that can be found pressing the green button that stat
 <span>Click</span>
 <a target="_blank" href="https://drive.google.com/file/d/1NLoRm0B9ueeeHNVasq6o5gWarWf4S_Uj/view?usp=sharing">here
 </a>
-<span>to see video of demo!</span>
+<span>to see demo.</span>
 
 ## Overview
 <span>Click</span>
 <a target="_blank" href="">here
 </a>
-<span>to see overview of the code, thought process, and implementation!</span>
+<span>to see overview (code structure, thought process, and general implementation).</span>
 
 ## Tech
 
 - React (Create-React-App) / Javascript
-- CSS / Sass
-
-## Notes
-The number combination is hidden, but for the sake of showcasing the
-game, I console logged the hidden number combination. To see the hidden
-number combination, please open your console.
+- CSS / SASS
